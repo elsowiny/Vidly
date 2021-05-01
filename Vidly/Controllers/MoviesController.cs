@@ -39,6 +39,18 @@ namespace Vidly.Controllers
 
         }
 
+        public ViewResult New()
+        {
+            var genres = _context.Genres.ToList();
+
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
 
         // GET: Movies/Random
         public ActionResult Random()
@@ -59,4 +71,6 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
     }
+
+
 }
